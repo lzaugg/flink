@@ -601,6 +601,17 @@ public final class ConfigConstants {
 	 * Exit JVM on fatal Akka errors
 	 */
 	public static final String AKKA_JVM_EXIT_ON_FATAL_ERROR = "akka.jvm-exit-on-fatal-error";
+
+	/**
+	 * http://doc.akka.io/docs/akka/2.4.2/scala/remoting.html#remote-configuration-nat
+	 */
+	public static final String AKKA_REMOTE_NETTY_TCP_HOSTNAME = "akka.remote.netty.tcp.hostname";
+
+	public static final String AKKA_REMOTE_NETTY_TCP_PORT = "akka.remote.netty.tcp.port";
+
+	public static final String AKKA_REMOTE_NETTY_TCP_BIND_HOSTNAME = "akka.remote.netty.tcp.bind-hostname";
+
+	public static final String AKKA_REMOTE_NETTY_TCP_BIND_PORT = "akka.remote.netty.tcp.bind-port";
 	
 	// ----------------------------- Streaming --------------------------------
 	
