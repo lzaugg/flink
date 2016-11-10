@@ -244,6 +244,26 @@ object AkkaUtils {
       ConfigConstants.AKKA_LOG_LIFECYCLE_EVENTS,
       ConfigConstants.DEFAULT_AKKA_LOG_LIFECYCLE_EVENTS)
 
+    val akkaHostname = configuration.getString(
+        ConfigConstants.AKKA_REMOTE_NETTY_TCP_HOSTNAME,
+        hostname
+      )
+
+    val akkaPort = configuration.getInteger(
+      ConfigConstants.AKKA_REMOTE_NETTY_TCP_PORT,
+      port
+      )
+
+    val akkaBindHostname = configuration.getString(
+        ConfigConstants.AKKA_REMOTE_NETTY_TCP_BIND_HOSTNAME,
+        hostname
+      )
+
+    val akkaBindPort = configuration.getInteger(
+      ConfigConstants.AKKA_REMOTE_NETTY_TCP_BIND_PORT,
+      port
+      )
+
     val logLifecycleEvents = if (lifecycleEvents) "on" else "off"
 
     val configString =
@@ -271,7 +291,8 @@ object AkkaUtils {
          |    netty {
          |      tcp {
          |        transport-class = "akka.remote.transport.netty.NettyTransport"
-         |        port = $port
+         |        port = $akkaPort
+         |        bind-port = $akkaBindPort
          |        connection-timeout = $akkaTCPTimeout
          |        maximum-frame-size = $akkaFramesize
          |        tcp-nodelay = on
@@ -289,7 +310,8 @@ object AkkaUtils {
            |  remote {
            |    netty {
            |      tcp {
-           |        hostname = $hostname
+           |        hostname = $akkaHostname
+           |        bind-hostname = $akkaBindHostname
            |      }
            |    }
            |  }
